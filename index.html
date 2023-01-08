@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>jQueryUloha</title>
+
+
+</head>
+<body>
+
+<div id="poznamky"></div>
+
+    <script>
+
+    $("div").css({"background-color": "beige", "font-size": "16px", "border":"solid"}); 
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/')
+      .then(response => response.json())
+      .then(json => {
+
+        for (const todo of json){
+
+            $("#poznamky").append(
+
+                ("<strong>ID pouzivatela: <strong>") + todo.userId, (",<i> ID poznamky: <i>") + todo.id, (",<strong> Nadpis: <strong>") + todo.title, (",<i> Splnene: <i>") + todo.completed, "; <br>"
+        );
+    }
+});
+
+    </script>
+    
+</body>
+</html>
